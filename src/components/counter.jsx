@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Counter = () => {
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(1);
   // const [imageUrl, setImageUrl] = useState("https://picsum.photos/200")
   const fotmCount = () => {
     return count === 0 ? "Ноль" : count;
