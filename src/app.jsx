@@ -21,17 +21,21 @@ function App() {
     const newCounters = counters.filter((c) => c.id !== counterId);
     setCounters(newCounters);
   };
-  const handleIncrement = (counterId) => {
-    const newCounters = [...counters];
-    const elementIndex = newCounters.findIndex((c) => c.id === counterId);
-    newCounters[elementIndex].value++;
+  const handleIncrement = (currentValue, currentId) => {
+    const newCounters = counters.map((c) => {
+      c.id === currentId ? (c.value = currentValue + 1) : (c.value = c.value);
+      return c;
+    });
     setCounters(newCounters);
   };
 
-  const handleDecrement = (counterId) => {
-    const newCounters = [...counters];
-    const elementIndex = newCounters.findIndex((c) => c.id === counterId);
-    newCounters[elementIndex].value--;
+  const handleDecrement = (currentValue, currentId) => {
+    const newCounters = counters.map((c) => {
+      c.id === currentId && c.value > 0
+        ? (c.value = currentValue - 1)
+        : (c.value = c.value);
+      return c;
+    });
     setCounters(newCounters);
   };
 
